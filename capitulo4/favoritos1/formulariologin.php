@@ -23,7 +23,7 @@
 <?php
 
 
-echo "ALgunos links que quizas te puedan interesar";
+echo "<br/>ALgunos links que quizas te puedan interesar";
 
 $conexion = new PDO('sqlite:favoritos.sqlite');
 

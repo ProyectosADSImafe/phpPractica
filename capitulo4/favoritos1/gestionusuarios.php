@@ -64,4 +64,7 @@ echo "</table>";
 
 
 }else{echo "Tu no eres administrador";}
+
+
+echo "Pulsa <a href='formulariologin.php'>AQUI</a> para volver  al inicio<br/>";
 ?>

@@ -69,7 +69,7 @@ echo "</table>";
 
 //Cerramos la conexion
 
-/*
+
 
 ////socializo//////////////////////////////////////////////////////
 
@@ -80,7 +80,7 @@ $conexion = new PDO('sqlite:favoritos.sqlite');
 
 $consulta = "SELECT * FROM favoritos WHERE usuario != '".$_SESSION['usuario']."' AND categoria='".$damecategoria."' ORDER BY RANDOM() LIMIT 3;";
 
-$conexion = $conexion -> exec($consulta);
+$resultado = $conexion -> query($consulta);
 
 echo "
 
@@ -97,7 +97,8 @@ echo "
 
 ";
 
-while ($fila = sqlite_fetch_array($conexion)){
+foreach ($resultado as $fila) {
+
 echo "<tr><td>".$fila['titulo']."</td><td>".$fila['direccion']."</td><td>".$fila['categoria']."</td><td>".$fila['comentario']."</td><td>".$fila['valoracion']."</td><td></td><td></td></tr>";
 }
 
@@ -105,15 +106,20 @@ echo "</table>";
 
 }
 
-muestraCategoria("salud");
+
 
 muestraCategoria("trabajo");
 
+muestraCategoria("salud");
+
 muestraCategoria("personal");
 
-muestraCategoria("hobby");
+muestraCategoria("Hobby");
 
 muestraCategoria("otros");
 
-*/
+
+
+
+
 ?>

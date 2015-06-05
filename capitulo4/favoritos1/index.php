@@ -4,8 +4,8 @@ session_start();
 /*
 $_SESSION['usuario'] = "jocarsa";
 $_SESSION['contrasena'] = "jocarsa";
-*/
 
+*/
 if(isset($_SESSION['usuario'])){
 
 echo'

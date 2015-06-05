@@ -29,6 +29,7 @@ $consulta =" INSERT INTO logs VALUES ('$utc','$anio','$mes','$dia','$hora','$min
 
 $conexion = $conexion -> exec($consulta);
 //Cierro
-sqlite_close($conexion);
+
+echo "Pulsa <a href='verlogs.php'>AQUI</a> para volver a las visitas de la pagina<br/>";
 
 ?>
