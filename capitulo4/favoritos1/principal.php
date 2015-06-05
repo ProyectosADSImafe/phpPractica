@@ -120,6 +120,7 @@ muestraCategoria("otros");
 
 
 
+ echo "Pulsa <a href='verlogs.php'>AQUI</a> para las visitas";
 
 
 ?>

@@ -6,6 +6,8 @@ $codigo = 1;
 
 if($codigo == 1){
 echo "Tu usuario es: ".$_SESSION['usuario']."<br /> Tu contraseña es: ".$_SESSION['contrasena'];
+echo "</br>Pulsa <a href='index.php'>AQUI</a> para cerrar sesion<br/>";
+
 
 //Crear resumen de visitas
 
