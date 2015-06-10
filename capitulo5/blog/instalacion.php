@@ -24,60 +24,52 @@ permisos Int
 //ejecutar
 $resultado =  $conexion -> exec($consulta);
 //cerrar
-sqlite_close($conexion);
+
 //################  insertaremos contenido de prueba en la tabla de usaurios   #################
 //conexion
-$conexion = sqlite_open('database/blogs.db') or die('Ha sido imposible establecer la conexion');
+$conexion = new PDO('sqlite:database/blogs.sqlite');
 //peticion
 
-$consulta =
+$consulta ="INSERT INTO usuarios('usuario','contrasena','nombre','apellidouno','apellidodos','titulo','descripcion','foto','webpersonal','email','permisos') VALUES('jocarsa','jocarsa','Jose Vicente','Carratala','Sanchis','Creativo Multimedia','Descripcion','josevicentecarratala','http://www.jocarsa.com','info@jocarsa.com',1)";
 
-<<<SQL
-INSERT INTO usuarios VALUES('jocarsa','jocarsa','Jose Vicente','Carratala','Sanchis','Creativo Multimedia','Descripcion','josevicentecarratala','http://www.jocarsa.com','info@jocarsa.com',1);
-SQL;
 
 //ejecutar
-$resultado = sqlite_exec($conexion,$consulta);
+$resultado = $conexion-> exec($consulta);
 //cerrar
-sqlite_close($conexion);
+
 //################  crear la tabla config usuarios   #################
 //conexion
-$conexion = sqlite_open('database/blogs.db') or die('Ha sido imposible establecer la conexion');
+$conexion = new PDO('sqlite:database/blogs.sqlite');
 //peticion
-$consulta =
-<<<SQL
+$consulta ="
 
 CREATE TABLE configusuarios(
 usuario Char(40) Not Null,
 piel Char(40),
 respuestas Char(40)
 
-);
+);";
 
-SQL;
+
 //ejecutar
-$resultado = sqlite_exec($conexion,$consulta);
+$resultado = $conexion-> exec($consulta);
 //cerrar
-sqlite_close($conexion);
+
 //################   insertaremos contenido de prueba en la configuracion de usuarios  #################
 //conexion
-$conexion = sqlite_open('database/blogs.db') or die('Ha sido imposible establecer la conexion');
+$conexion = new PDO('sqlite:database/blogs.sqlite');
 //peticion
-$consulta =
+$consulta ="INSERT INTO configusuarios('usuario','piel','respuestas') VALUES('jocarsa','default','si')";
 
-<<<SQL
-INSERT INTO configusuarios VALUES('jocarsa','default','si');
-SQL;
 //ejecutar
-$resultado = sqlite_exec($conexion,$consulta);
+$resultado = $conexion -> exec($consulta);
 //cerrar
-sqlite_close($conexion);
+
 //################  crear la tabla posts   #################
 //conexion
-$conexion = sqlite_open('database/blogs.db') or die('Ha sido imposible establecer la conexion');
+$conexion = new PDO('sqlite:database/blogs.sqlite');
 //peticion
-$consulta =
-<<<SQL
+$consulta ="
 
 CREATE TABLE posts(
 utc Int Not Null,
@@ -95,34 +87,28 @@ texto Char(4000),
 imagen Char(200),
 video Char(200),
 sonido Char(200)
-);
+);";
 
-SQL;
+
 //ejecutar
-$resultado = sqlite_exec($conexion,$consulta);
+$resultado = $conexion -> exec($consulta);
 //cerrar
-sqlite_close($conexion);
+
 
 //################   insertaremos contenido de prueba en la tabla posts  #################
 //conexion
-$conexion = sqlite_open('database/blogs.db') or die('Ha sido imposible establecer la conexion');
+$conexion = new PDO('sqlite:database/blogs.sqlite');
 //peticion
-$consulta =
-
-<<<SQL
-INSERT INTO posts VALUES(00000000,2011,02,10,11,55,00,'jocarsa','Este es un primer post','Bienvenido a tu blog','josevicente','Este es el primer post','imagen','video','sonido');
-SQL;
+$consulta ="INSERT INTO posts ('utc','anio','mes','dia','hora','minuto','segundo','usuario','titulo','subtitulo','icono','texto','imagen','video','sonido') VALUES(00000000,2011,02,10,11,55,00,'jocarsa','Este es un primer post','Bienvenido a tu blog','josevicente','Este es el primer post','imagen','video','sonido')";
 //ejecutar
-$resultado = sqlite_exec($conexion,$consulta);
+$resultado = $conexion-> exec($consulta);
 //cerrar
-sqlite_close($conexion);
+
 //################   crear la tabla logs  #################
 //conexion
-$conexion = sqlite_open('database/blogs.db') or die('Ha sido imposible establecer la conexion');
+$conexion = new PDO('sqlite:database/blogs.sqlite');
 //peticion
-$consulta =
-<<<SQL
-
+$consulta ="
 CREATE TABLE logs(
 utc Int Not Null,
 anio Int,
@@ -136,26 +122,23 @@ navegador Char(300),
 usuario Char(80),
 operacion Char(80)
 
-);
+);";
 
-SQL;
+
 //ejecutar
-$resultado = sqlite_exec($conexion,$consulta);
+$resultado = $conexion-> exec($consulta);
 //cerrar
-sqlite_close($conexion);
+
 
 
 //################   insertaremos contenido de prueba en la tabla logs  #################
 //conexion
-$conexion = sqlite_open('database/blogs.db') or die('Ha sido imposible establecer la conexion');
+$conexion = new PDO('sqlite:database/blogs.sqlite');
 //peticion
-$consulta =
+$consulta ="INSERT INTO logs('utc','anio','mes','dia','hora','minuto','segundo','ip','navegador','usuario','operacion') VALUES(00000000,2011,02,10,11,55,00,'127.0.0.1','Chrome','jocarsa','crear')";
 
-<<<SQL
-INSERT INTO logs VALUES(00000000,2011,02,10,11,55,00,'127.0.0.1','Chrome','jocarsa','crear');
-SQL;
 //ejecutar
-$resultado = sqlite_exec($conexion,$consulta);
+$resultado = $conexion-> exec($consulta);
 //cerrar
-sqlite_close($conexion);
+
 ?>

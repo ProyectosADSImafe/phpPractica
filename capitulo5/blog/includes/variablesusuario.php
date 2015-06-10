@@ -2,13 +2,12 @@
 
 $_SESSION['usuariotemporal'] = "jocarsa";
 
-$conexion = sqlite_open('database/blogs.db');
+$conexion = new PDO('sqlite:database/blogs.sqlite');
+$peticion = "SELECT * FROM usuarios WHERE usuario ='".$_SESSION['maria']."';";
 
-$peticion = "SELECT * FROM usuarios WHERE usuario ='".$_SESSION['usuariotemporal']."';";
+$ejecuto = $conexion-> query($peticion);
 
-$ejecuto = sqlite_query($conexion,$peticion);
-
-while ($fila = sqlite_fetch_array($ejecuto)){
+foreach ($ejecuto as $fila) {
 
 $_SESSION['usuario'] = $fila['usuario'];
 $_SESSION['nombre'] = $fila['nombre'];
@@ -23,6 +22,6 @@ $_SESSION['permisos'] = $fila['permisos'];
 
 }
 
-sqlite_close($conexion);
+
 
 ?>

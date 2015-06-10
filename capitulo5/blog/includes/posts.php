@@ -1,14 +1,13 @@
 
 <?php
 
-$conexion = sqlite_open('database/blogs.db');
+$conexion = new PDO('sqlite:database/blogs.sqlite');
 
 $peticion = "SELECT * FROM posts WHERE usuario='".$_SESSION['usuariotemporal']."' ORDER BY utc DESC;";
 
-$ejecucion = sqlite_query($conexion,$peticion);
+$ejecucion = $conexion$ ->query($peticion);
 
-while ( $fila = sqlite_fetch_array($ejecucion)){
-
+foreach ($ejecucion as $fila) {
 echo "
 <article>
 						<div id='logov2b' style='background:url(\"photo/".$fila['imagen'].".jpg\");'></div>
